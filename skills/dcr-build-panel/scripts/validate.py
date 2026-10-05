@@ -148,7 +148,7 @@ def validate(project_dir: Path) -> list[Issue]:
             if re.search(r'class="[^"]*\bbutton\b', text):
                 issues.append(Issue(
                     "warning", "admin_button_class",
-                    "Use dcr-btn, not Django admin .button. See references/design-system.md.",
+                    "Use dcr-btn, not Django admin .button. See common/design-system.md.",
                     rel,
                 ))
             if html.name == "index.html":
@@ -161,7 +161,7 @@ def validate(project_dir: Path) -> list[Issue]:
                 if "dcr-page-header" not in text:
                     issues.append(Issue(
                         "warning", "missing_dcr_header",
-                        "List page should use dcr-page-header. See references/design-system.md.",
+                        "List page should use dcr-page-header. See common/design-system.md.",
                         rel,
                     ))
 

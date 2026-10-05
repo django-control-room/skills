@@ -137,6 +137,7 @@ def _build_context(args: argparse.Namespace) -> dict[str, str]:
     )
     context = {
         "project_name": args.project_name,
+        "layout": "package",
         "project_slug": slug,
         "package_name": package,
         "project_description": description,

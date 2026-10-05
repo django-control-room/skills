@@ -18,18 +18,7 @@ Leave these as Cookiecutter wrote them unless the feature truly requires a chang
 
 Add views, templates, helpers, and tests freely.
 
-## Living examples
-
-Do not vendor copies of panel code in this skill. When you need a pattern, open the current official source (local submodule in this playground, otherwise GitHub `main`):
-
-| Pattern | Read |
-|---|---|
-| Cookiecutter stubs you are replacing | The project you just baked |
-| List + search UI | [dj-urls-panel](https://github.com/django-control-room/dj-urls-panel) `views.py`, `templates/admin/dj_urls_panel/` |
-| POST actions (flush/delete/edit) | [dj-cache-panel](https://github.com/django-control-room/dj-cache-panel) `views.py`, `key_detail.html` |
-| MCP tools | [dj-urls-panel](https://github.com/django-control-room/dj-urls-panel) `tools.py`, [dj-signals-panel](https://github.com/django-control-room/dj-signals-panel) `tools.py` |
-| Design system + styleguide | [dj-control-room-base](https://github.com/django-control-room/dj-control-room-base) `design-system.css`; baked example: `/admin/dj-control-room-base/` |
-| Scopes docs | Any official panel `docs/scopes.md` (e.g. urls-panel) |
+Living official panels and the design-system catalog: [living-examples.md](../common/living-examples.md). Do not vendor copies in this skill.
 
 ## Dependencies
 
