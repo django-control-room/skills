@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Static checks for a DCR panel package produced by dcr-build-panel.
+"""Static checks for a DCR panel package produced by dcr-create-package-panel.
 
 Usage:
-    python scripts/validate.py /path/to/dj-webhook-failures-panel
+    python scripts/validate.py /path/to/dj-settings-lookup-panel
 
 Does not import Django. Exits 1 if any error is found.
 """
@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 SKILLS_IMPORT = re.compile(
-    r"(?:from|import)\s+(?:skills|dcr_build_panel|dcr-build-panel)\b"
+    r"(?:from|import)\s+(?:skills|dcr_create_package_panel|dcr-create-package-panel)\b"
 )
 PERMISSION = re.compile(r"permission_required\s*\(")
 GET_CONTEXT = re.compile(r"panel_config\.get_context\s*\(")

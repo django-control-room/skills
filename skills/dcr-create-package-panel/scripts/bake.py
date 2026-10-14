@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Non-interactive Cookiecutter wrapper for dcr-build-panel.
+"""Non-interactive Cookiecutter wrapper for dcr-create-package-panel.
 
 Run this instead of composing Cookiecutter flags by hand. Extra context is
 passed as --no-input KEY=VALUE pairs so the bake is deterministic.
@@ -8,14 +8,14 @@ Examples:
 
     python scripts/bake.py \\
         --output-dir ~/src \\
-        --project-name "Webhook Failures Panel" \\
-        --project-slug dj-webhook-failures-panel \\
-        --package-name dj_webhook_failures_panel \\
-        --project-description "Inspect and retry failed webhook deliveries" \\
+        --project-name "Settings Lookup Panel" \\
+        --project-slug dj-settings-lookup-panel \\
+        --package-name dj_settings_lookup_panel \\
+        --project-description "Look up Django settings" \\
         --author-name "Ada Lovelace" \\
         --author-email ada@example.com \\
         --github-username ada \\
-        --panel-icon link
+        --panel-icon cog
 
     python scripts/bake.py --output-dir . --project-name "Widgets Panel" \\
         --template /path/to/cookiecutter-dj-control-room-plugin

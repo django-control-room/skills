@@ -2,7 +2,7 @@
 
 Example **user requests** used to check that this skill produces a coherent DCR panel. They are not runtime fixtures and are not copied into generated packages.
 
-To eval: give the request to an agent that has `dcr-build-panel` loaded, then run `scripts/validate.py` and the generated test suite on the output.
+To eval: give the request to an agent that has `dcr-create-package-panel` loaded, then run `scripts/validate.py` and the generated test suite on the output.
 
 A good result:
 
@@ -12,3 +12,7 @@ A good result:
 - Generated code depends on `dj-control-room-base`, not this repo
 - `validate.py` reports 0 errors
 - `pytest` and `manage.py check` pass
+
+Evals are deliberately small, read-only panels over in-process data so they are cheap to run and easy to check:
+
+- [settings-lookup.md](settings-lookup.md)
