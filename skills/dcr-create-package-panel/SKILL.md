@@ -1,5 +1,5 @@
 ---
-name: dcr-build-panel
+name: dcr-create-package-panel
 description: >-
   Scaffolds a reusable Django Control Room (DCR) panel package with the official
   Cookiecutter, then implements the requested admin UI, scopes, tests, and MCP
@@ -8,7 +8,7 @@ description: >-
   internal panel.
 ---
 
-# dcr-build-panel
+# dcr-create-package-panel
 
 Build a **reusable, independently publishable** Django Control Room panel package.
 
@@ -24,7 +24,7 @@ The [official Cookiecutter](https://github.com/django-control-room/cookiecutter-
 
 After baking, **edit the generated stubs in place**. For patterns Cookiecutter does not stub (list/detail, POST actions, extra MCP tools, `dcr-*` markup), read the **living** official panels and design system listed in [living-examples.md](../common/living-examples.md). Prefer those over inventing APIs from memory.
 
-This skill does **not** add a panel as a new Django app inside an existing project. If that is what the user wants, stop and use `dcr-build-internal-panel`. When distribution is unclear, ask:
+This skill does **not** add a panel as a new Django app inside an existing project. If that is what the user wants, stop and use `dcr-create-internal-panel`. When distribution is unclear, ask:
 
 > Should this be a reusable panel package, or a new Django app in this project?
 
@@ -67,14 +67,14 @@ Standalone package only. Infer `project_name` (include "Panel"), `project_slug` 
 ```bash
 python scripts/bake.py \
   --output-dir "$OUTPUT_DIR" \
-  --project-name "Webhook Failures Panel" \
-  --project-slug "dj-webhook-failures-panel" \
-  --package-name "dj_webhook_failures_panel" \
-  --project-description "Inspect and retry failed webhook deliveries" \
+  --project-name "Settings Lookup Panel" \
+  --project-slug "dj-settings-lookup-panel" \
+  --package-name "dj_settings_lookup_panel" \
+  --project-description "Look up Django settings" \
   --author-name "..." \
   --author-email "..." \
   --github-username "..." \
-  --panel-icon link
+  --panel-icon cog
 ```
 
 If this workspace contains `cookiecutter-dj-control-room-plugin/`, pass `--template` pointing at it. Do not run Cookiecutter interactively. See [references/scaffolding.md](references/scaffolding.md).
