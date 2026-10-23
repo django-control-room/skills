@@ -18,7 +18,7 @@ Leave these as Cookiecutter wrote them unless the feature truly requires a chang
 
 Add views, templates, helpers, and tests freely.
 
-Living official panels and the design-system catalog: [living-examples.md](../common/living-examples.md). Do not vendor copies in this skill.
+Living official panels and the design-system catalog: [living-examples.md](../../common/living-examples.md). Do not vendor copies in this skill.
 
 ## Dependencies
 

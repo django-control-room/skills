@@ -1,12 +1,15 @@
 ---
 name: dcr-create-internal-panel
 description: >-
-  Scaffolds a Django Control Room (DCR) panel as a new Django app inside an
-  existing project (not a publishable package) using the dcr_startpanel
-  management command, then implements the requested admin UI, scopes, tests,
-  and MCP tools. Use when the user wants an in-project, internal, or unpackaged
-  control-room panel — not a PyPI/cookiecutter package repo. Never nest the
-  panel inside another Django app.
+  Creates a new internal admin tool for a Django project as a Django Control
+  Room (DCR) panel: a new dcr_-prefixed Django app inside the existing project,
+  scaffolded with the dcr_startpanel management command, then implemented with
+  pages, scopes, tests, and optional MCP agent tools. Use when the user wants a
+  staff-only page, lookup tool, dashboard, or ops/support screen inside their
+  own Django project, or says internal panel, project panel, or unpackaged
+  control-room panel. Not for a reusable PyPI package (use
+  dcr-create-package-panel) or for changing an existing panel (use
+  dcr-modify-panel). Never nests the panel inside another Django app.
 ---
 
 # dcr-create-internal-panel
@@ -63,7 +66,7 @@ Task progress:
 
 Internal Django app only. Pick a short snake_case name **without** the prefix (`webhook_failures`, `app_packages`). The command adds `dcr_` itself (`dcr_webhook_failures`), so the app label you work with from here on is the prefixed one.
 
-The project must already have `dj-control-room` and `dj-control-room-base` installed and `dj_control_room_base` in `INSTALLED_APPS`. If they are missing, stop and say so; do not invent a standalone admin view.
+The project must already have `dj-control-room` and `dj-control-room-base` installed and `dj_control_room_base` in `INSTALLED_APPS`. If they are missing, stop and say so (the `dcr-setup` skill covers setup); do not invent a standalone admin view.
 
 Run the command from the project root (next to `manage.py`), so the app lands as a sibling of the existing apps. Do not pass a `directory` that is inside another app.
 

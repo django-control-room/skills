@@ -1,0 +1,25 @@
+---
+description: This project uses Django Control Room. Staff-facing tools are built as DCR panels.
+alwaysApply: true
+---
+
+# Django Control Room
+
+This project uses [Django Control Room](https://djangocontrolroom.com) (DCR). Staff-facing tools, admin pages, dashboards, and lookup screens are built as **DCR panels**, not as one-off admin views or standalone pages.
+
+When asked to build, add, extend, or change one:
+
+- A new tool for this project: use the `dcr-create-internal-panel` skill. It creates a new `dcr_`-prefixed Django app with `python manage.py dcr_startpanel <name>`. Never put panel code inside an existing app.
+- Something shared across projects or published to PyPI: use `dcr-create-package-panel`.
+- A change to a panel that already exists: use `dcr-modify-panel`. Do not rename scopes, URL names, MCP tool names, or settings keys without asking.
+- DCR itself is misconfigured (`dcr_icons` errors, `dj_control_room.E001`, a panel missing from the dashboard): use `dcr-setup`.
+- Not sure which: use `dcr-guide`.
+
+Rules for any panel:
+
+- UI uses the `dcr-*` design system from `dj-control-room-base`. No admin `.button`, no copied stylesheet.
+- Read settings with `panel_config.get_settings()`, never `django.conf.settings`.
+- Every view is decorated with `@panel_config.permission_required("<scope>")`.
+- "MCP tool" means a function a panel exposes to AI agents. It is not the same as a panel.
+
+If the skills are not installed, read [Building Panels](https://django-control-room.github.io/dj-control-room-base/building-panels/).

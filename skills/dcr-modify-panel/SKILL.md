@@ -1,12 +1,13 @@
 ---
 name: dcr-modify-panel
 description: >-
-  Modifies an existing Django Control Room (DCR) panel or adds a feature to it:
-  a new page, column, search or filter, action, MCP tool, setting, or scope.
-  Works on both reusable panel packages and internal (dcr_startpanel) apps, and
-  keeps existing scopes, URL names, tool names, and settings keys working. Use
-  when the user wants to change, extend, fix, or add to a panel that already
-  exists — not to create a new one.
+  Changes or extends an existing Django Control Room (DCR) panel or the staff
+  admin tool built on it: add a page, column, search or filter, button or
+  action, setting, permission scope, or MCP agent tool, or fix a bug. Works on
+  reusable panel packages and internal dcr_startpanel apps, and keeps existing
+  scopes, URL names, MCP tool names, and settings keys working. Use when the
+  user wants to change, extend, fix, or add to a panel or dj-control-room tool
+  that already exists; not to create a new one.
 ---
 
 # dcr-modify-panel
@@ -63,7 +64,7 @@ python scripts/inspect_panel.py PATH
 
 - **mode**: `package` (has the `dj_control_room.panels` entry point) or `internal` (registers from `AppConfig.ready()`). Stay in that mode. In a package, update `docs/`, `pyproject.toml` dependencies, and `tests/`. In an internal app, do not add `pyproject.toml`, Docker, MkDocs, or `docs/`.
 - **PanelConfig / panel_base.html**: if either says `NO`, the panel is a legacy one with its own conf and base template. Match what is there. Do not migrate it to `dj-control-room-base` as a side effect; mention it in the report instead.
-- **public surface**: the view scopes, tool names and scopes, URL names, URL namespace, settings key and default keys, and entry point that other people depend on. See [references/compatibility.md](references/compatibility.md).
+- **public surface**: the view scopes, MCP tool names and scopes, URL names, URL namespace, settings key and default keys, and entry point that other people depend on. See [references/compatibility.md](references/compatibility.md).
 
 If the user did not say which panel, ask. Several panels in one repo is common.
 
@@ -84,7 +85,7 @@ Before editing, check [references/compatibility.md](references/compatibility.md)
 - **Smallest diff that does the job.** Edit in place. Do not restructure, rename, reformat, or "modernize" files you do not need to change.
 - **Follow the panel's conventions** over the generic ones: its helper module, its template partials, its test base class, its naming style. Open a neighbouring view or test and match it.
 - **New view → new scope.** Name it for what it protects (`widget_detail`). Do not reuse an unrelated scope and do not use `"index"`.
-- **New tool → `agent_` scope**, distinct from the view scope.
+- **New MCP tool → `agent_` scope**, distinct from the view scope.
 - **New setting → add its default in `conf.py`**, read it with `panel_config.get_settings()`. Never `getattr(django.conf.settings, ...)`.
 - **UI uses `dcr-*`.** No admin `.button`, no copied `design-system.css`, no hex colours.
 - **Add a test for each new behaviour** next to the panel's existing tests. Package: subclass `PanelTestCase`. Internal: the host project's suite.
@@ -109,7 +110,7 @@ Every `BREAKING removed …` line from `inspect_panel.py` must be either undone 
 
 Say what changed in plain terms, then list:
 
-- **Added**: new scopes, tools, URL names, settings keys.
+- **Added**: new scopes, MCP tools, URL names, settings keys.
 - **Changed behaviour** for existing users, if any.
 - **Breaking**: anything removed or renamed, and how users migrate. "None" is a valid answer once `inspect_panel.py --base` agrees.
 - **Not done**: legacy-panel migration, unrelated failures you noticed, docs the panel lacks.
