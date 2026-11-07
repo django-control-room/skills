@@ -1,4 +1,4 @@
-<img src="assets/glyph.png" alt="Django Control Room" width="36" align="left">
+<img src="assets/glyph.png" alt="Django Control Room" width="72">
 
 # Django Control Room skills
 
