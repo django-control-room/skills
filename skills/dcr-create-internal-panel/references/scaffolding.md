@@ -63,7 +63,7 @@ Do not invent hub keys the hub does not read (`LOCAL_PANELS`, `PANELS`).
 
 ## Adding MCP tools
 
-The generated `conf.py` has no tools wiring. To add agent tools, create `tools.py` with a `ToolRegistry()` (see [mcp-tools.md](../../common/mcp-tools.md)) and pass it to the config:
+The generated `conf.py` has no tools wiring. To add agent tools, create `tools.py` with a `ToolRegistry()` (see [mcp-tools.md](../../dcr-reference/mcp-tools.md)) and pass it to the config:
 
 ```python
 from .tools import registry as tool_registry
@@ -87,7 +87,7 @@ Keep the generated `PanelConfig(settings_key="<APP>_SETTINGS")`. That is the sam
 
 A later hub-level `DJ_CONTROL_ROOM_SETTINGS["PANELS"]` merge can land inside `PanelConfig.get_settings()` without changing this app's `conf.py` call sites. `settings_key` stays the legacy/compat layer.
 
-Living official panels and the design-system catalog: [living-examples.md](../../common/living-examples.md). Write scopes into this app's `scopes.md`. Do not vendor copies in this skill.
+Living official panels and the design-system catalog: [living-examples.md](../../dcr-reference/living-examples.md). Write scopes into this app's `scopes.md`. Do not vendor copies in this skill.
 
 ## Dependencies
 

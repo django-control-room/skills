@@ -40,18 +40,18 @@ Cursor reads the same plugin manifest ([`plugin.json`](plugin.json)). Until the 
 The [`skills` CLI](https://github.com/vercel-labs/skills) installs to many agents:
 
 ```bash
-npx skills add django-control-room/skills
+npx skills add django-control-room/skills --skill '*'
 ```
 
-It copies each skill directory on its own, so `skills/common/` is **not** copied. `dcr-setup` works as is, but the other skills link to `../common/`. Either copy `skills/common/` next to them afterwards, or use a plugin install above.
+Install **all** the skills. The create and modify skills read shared docs from the `dcr-reference` skill, and the CLI copies each skill on its own, so leaving `dcr-reference` out gives them dead links. `dcr-setup` works alone.
 
 ### Copy the skills by hand
 
-Copy the skill directories from `skills/` into the place your agent loads skills from, **and** copy `skills/common/` next to them (not inside them):
+Copy the skill directories from `skills/` into the place your agent loads skills from. Copy `dcr-reference/` too, next to the others, not inside them:
 
 ```
 .cursor/skills/
-  common/
+  dcr-reference/              # needed by every skill except dcr-setup
   dcr-guide/                  # recommended: routes plain-language requests
   dcr-setup/                  # and/or the other skills below
   dcr-create-package-panel/   # and/or dcr-create-internal-panel/, dcr-modify-panel/
@@ -63,7 +63,7 @@ Copy the skill directories from `skills/` into the place your agent loads skills
 | Claude Code | `.claude/skills/` |
 | Codex, Gemini CLI, Copilot | `.agents/skills/` |
 
-Keep each skill's `SKILL.md`, `references/`, `scripts/`, and `evals/` together. Every skill except `dcr-setup` links to `../common/`. `dcr-guide` also links to its sibling skills, so install it alongside them.
+Keep each skill's `SKILL.md`, `references/`, `scripts/`, and `evals/` together. Every skill except `dcr-setup` links to `../dcr-reference/`. `dcr-guide` also links to its sibling skills, so install it alongside them.
 
 ## Skills
 
@@ -74,6 +74,8 @@ Keep each skill's `SKILL.md`, `references/`, `scripts/`, and `evals/` together. 
 | [`dcr-create-package-panel`](skills/dcr-create-package-panel/) | You want a **reusable panel package** (PyPI, private wheel, or a repo installed into one or more Django projects) |
 | [`dcr-create-internal-panel`](skills/dcr-create-internal-panel/) | You want a **new Django app** in the current project (no packaging, Docker, MkDocs, or example project). Never nested inside another app |
 | [`dcr-modify-panel`](skills/dcr-modify-panel/) | You want to **change or add a feature to a panel that already exists**: a page, column, search, action, MCP tool, setting, or scope. Works on packages and internal apps |
+
+[`dcr-reference`](skills/dcr-reference/) is not a skill you invoke. It holds the shared docs (pages, lists, search, actions, scopes, MCP tools, design system) that the create and modify skills link to, so install it with them.
 
 If the intended distribution is unclear, the create skills will ask which of those you want rather than guessing.
 
@@ -146,7 +148,8 @@ assets/
 scripts/
   check_manifests.py      # manifests agree, assets exist
 skills/
-  common/                 # shared DCR refs (sibling of every skill)
+  dcr-reference/          # shared DCR refs, installed as a skill (sibling of the others)
+    SKILL.md              # index of the files below
     actions.md
     design-system.md
     lists.md

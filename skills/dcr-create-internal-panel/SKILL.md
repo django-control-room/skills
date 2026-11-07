@@ -16,7 +16,7 @@ description: >-
 
 Build an **internal panel**: a new Django app, inside the current project, that is a Django Control Room panel.
 
-Shared DCR contract docs live in the sibling [`common/`](../common/) directory. Do not copy that folder into the Django app.
+Shared DCR contract docs live in the sibling [`dcr-reference/`](../dcr-reference/) skill. If that folder is missing, tell the user to install the `dcr-reference` skill next to this one. Do not copy that folder into the Django app.
 
 This skill is **development-time guidance**. It is not part of the resulting application. The app must depend on DCR packages (`dj-control-room-base` and `dj-control-room`) the normal way. It must **not** depend on this skills repository.
 
@@ -39,13 +39,13 @@ Do not load every reference for every task. Read only what the current step need
 | If the panel… | Read |
 |---|---|
 | Is being scaffolded or wired | [references/scaffolding.md](references/scaffolding.md) |
-| Has list/detail (or other) pages | [pages.md](../common/pages.md) |
-| Renders any UI | [design-system.md](../common/design-system.md) |
-| Shows a table or list of records | [lists.md](../common/lists.md) |
-| Lets the user search or filter a list | [search.md](../common/search.md) |
-| Performs an operation (retry, flush, delete, run) | [actions.md](../common/actions.md) |
-| Exposes agent-accessible functionality | [mcp-tools.md](../common/mcp-tools.md) |
-| Needs permission design | [scopes.md](../common/scopes.md) |
+| Has list/detail (or other) pages | [pages.md](../dcr-reference/pages.md) |
+| Renders any UI | [design-system.md](../dcr-reference/design-system.md) |
+| Shows a table or list of records | [lists.md](../dcr-reference/lists.md) |
+| Lets the user search or filter a list | [search.md](../dcr-reference/search.md) |
+| Performs an operation (retry, flush, delete, run) | [actions.md](../dcr-reference/actions.md) |
+| Exposes agent-accessible functionality | [mcp-tools.md](../dcr-reference/mcp-tools.md) |
+| Needs permission design | [scopes.md](../dcr-reference/scopes.md) |
 | Needs tests | [references/tests.md](references/tests.md) |
 
 Authoritative DCR contract (do not copy it into this skill): [Building Panels](https://django-control-room.github.io/dj-control-room-base/building-panels/).
@@ -84,9 +84,9 @@ Apply the printed snippets. List the new app **before** `dj_control_room` in `IN
 
 ### 5. Implement
 
-Work inside the generated app. Load references from the table above. Replace the starter `index` view and template. Set a descriptive `icon` and populate `PanelPlugin.features` in `panel.py`. Write a `scopes.md` next to `panel.py`. Any template work also reads [design-system.md](../common/design-system.md) — use `dcr-*` components, do not invent CSS.
+Work inside the generated app. Load references from the table above. Replace the starter `index` view and template. Set a descriptive `icon` and populate `PanelPlugin.features` in `panel.py`. Write a `scopes.md` next to `panel.py`. Any template work also reads [design-system.md](../dcr-reference/design-system.md) — use `dcr-*` components, do not invent CSS.
 
-The generated app has no MCP `tools.py`. Add one only if the panel should be agent-accessible (see [mcp-tools.md](../common/mcp-tools.md)).
+The generated app has no MCP `tools.py`. Add one only if the panel should be agent-accessible (see [mcp-tools.md](../dcr-reference/mcp-tools.md)).
 
 Always read config through `panel_config.get_settings()`. Do not `getattr(django.conf.settings, "DCR_APP_PACKAGES_SETTINGS")`.
 

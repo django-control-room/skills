@@ -16,7 +16,7 @@ description: >-
 
 Route a request to the right DCR skill. This skill builds nothing itself.
 
-Shared DCR contract docs live in the sibling [`common/`](../common/) directory.
+Shared DCR contract docs live in the sibling [`dcr-reference/`](../dcr-reference/) skill. If that folder is missing, tell the user to install the `dcr-reference` skill next to this one.
 
 This skill is **development-time guidance**. It is not part of the resulting application, and nothing built from it may depend on this skills repository.
 

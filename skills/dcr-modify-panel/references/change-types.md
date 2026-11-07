@@ -4,15 +4,15 @@ Find the row that matches the request, touch the listed files, and read the shar
 
 | Change | Touch | Read |
 |---|---|---|
-| [New page](#new-page) | `views.py`, `urls.py`, `templates/admin/<app>/`, scopes doc, tests | [pages.md](../../common/pages.md) |
-| [New column or field](#new-column-or-field) | the data helper, the template, tests | [lists.md](../../common/lists.md), [design-system.md](../../common/design-system.md) |
-| [Search or filter](#search-or-filter) | the data helper, `views.py`, the list template, tests | [search.md](../../common/search.md) |
-| [New action](#new-action) | `views.py`, `urls.py`, the template, scopes doc, tests | [actions.md](../../common/actions.md) |
-| [New MCP tool](#new-mcp-tool) | `tools.py`, `conf.py` (internal only), scopes doc, tests | [mcp-tools.md](../../common/mcp-tools.md) |
-| [New setting](#new-setting) | `conf.py`, the code that uses it, config docs, tests | [scopes.md](../../common/scopes.md) for permission-style keys |
-| [Change who may do what](#change-who-may-do-what) | `views.py` / `tools.py`, scopes doc, tests | [scopes.md](../../common/scopes.md) |
+| [New page](#new-page) | `views.py`, `urls.py`, `templates/admin/<app>/`, scopes doc, tests | [pages.md](../../dcr-reference/pages.md) |
+| [New column or field](#new-column-or-field) | the data helper, the template, tests | [lists.md](../../dcr-reference/lists.md), [design-system.md](../../dcr-reference/design-system.md) |
+| [Search or filter](#search-or-filter) | the data helper, `views.py`, the list template, tests | [search.md](../../dcr-reference/search.md) |
+| [New action](#new-action) | `views.py`, `urls.py`, the template, scopes doc, tests | [actions.md](../../dcr-reference/actions.md) |
+| [New MCP tool](#new-mcp-tool) | `tools.py`, `conf.py` (internal only), scopes doc, tests | [mcp-tools.md](../../dcr-reference/mcp-tools.md) |
+| [New setting](#new-setting) | `conf.py`, the code that uses it, config docs, tests | [scopes.md](../../dcr-reference/scopes.md) for permission-style keys |
+| [Change who may do what](#change-who-may-do-what) | `views.py` / `tools.py`, scopes doc, tests | [scopes.md](../../dcr-reference/scopes.md) |
 | [Change the data source](#change-the-data-source) | the data helper, tests | |
-| [Restyle or fix markup](#restyle-or-fix-markup) | templates, `static/**/styles.css` | [design-system.md](../../common/design-system.md) |
+| [Restyle or fix markup](#restyle-or-fix-markup) | templates, `static/**/styles.css` | [design-system.md](../../dcr-reference/design-system.md) |
 | [Bug fix](#bug-fix) | the faulty file, a regression test | |
 
 ## New page

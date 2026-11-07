@@ -22,7 +22,7 @@ The agent should ask only for author, email, GitHub username, license, and outpu
 
 Cookiecutter stubs replaced in place, patterns taken from official panels / the design system:
 
-- A list page of settings (name, value, type) with a search box (case-insensitive match on the setting name), built from `dcr-page-header`, `dcr-data-table`, and the search form patterns in [`common/search.md`](../../common/search.md)
+- A list page of settings (name, value, type) with a search box (case-insensitive match on the setting name), built from `dcr-page-header`, `dcr-data-table`, and the search form patterns in [`dcr-reference/search.md`](../../dcr-reference/search.md)
 - Only upper-case settings are listed
 - Values for names that look sensitive (`SECRET`, `PASSWORD`, `TOKEN`, `KEY`, `DSN`, and similar) are redacted and never rendered. This is the interesting requirement: the agent should do it without being told which names
 - A helper module that gathers and filters settings, separate from the view, with tests of its own

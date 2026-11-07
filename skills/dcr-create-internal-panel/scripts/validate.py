@@ -160,7 +160,7 @@ def validate(app_dir: Path) -> list[Issue]:
                 "warning",
                 "stub_index_scope",
                 'Replace the generated "index" scope with a descriptive name '
-                "(e.g. package_list). See common/scopes.md.",
+                "(e.g. package_list). See dcr-reference/scopes.md.",
                 "views.py",
             ))
 
@@ -199,7 +199,7 @@ def validate(app_dir: Path) -> list[Issue]:
                 issues.append(Issue(
                     "warning",
                     "admin_button_class",
-                    "Use dcr-btn, not Django admin .button. See common/design-system.md.",
+                    "Use dcr-btn, not Django admin .button. See dcr-reference/design-system.md.",
                     rel,
                 ))
             if html.name == "index.html":
@@ -218,7 +218,7 @@ def validate(app_dir: Path) -> list[Issue]:
                     issues.append(Issue(
                         "warning",
                         "missing_dcr_header",
-                        "List page should use dcr-page-header. See common/design-system.md.",
+                        "List page should use dcr-page-header. See dcr-reference/design-system.md.",
                         rel,
                     ))
 

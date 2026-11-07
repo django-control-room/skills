@@ -14,7 +14,7 @@ description: >-
 
 Change a panel that already exists, without breaking the people already using it.
 
-Shared DCR contract docs live in the sibling [`common/`](../common/) directory. Do not copy that folder into the panel.
+Shared DCR contract docs live in the sibling [`dcr-reference/`](../dcr-reference/) skill. If that folder is missing, tell the user to install the `dcr-reference` skill next to this one. Do not copy that folder into the panel.
 
 This skill is **development-time guidance**. It is not part of the resulting application. Do not import from, or add a dependency on, this skills repository.
 
@@ -32,15 +32,15 @@ Read only what the change needs:
 |---|---|
 | Is anything beyond a one-line fix | [references/change-types.md](references/change-types.md) |
 | Renames, removes, or re-scopes something | [references/compatibility.md](references/compatibility.md) |
-| Adds or changes a page | [pages.md](../common/pages.md) |
-| Touches any markup | [design-system.md](../common/design-system.md) |
-| Adds or changes a table | [lists.md](../common/lists.md) |
-| Adds search or filters | [search.md](../common/search.md) |
-| Adds an operation (retry, flush, delete, run) | [actions.md](../common/actions.md) |
-| Adds agent-accessible functionality | [mcp-tools.md](../common/mcp-tools.md) |
-| Adds or changes who may do something | [scopes.md](../common/scopes.md) |
+| Adds or changes a page | [pages.md](../dcr-reference/pages.md) |
+| Touches any markup | [design-system.md](../dcr-reference/design-system.md) |
+| Adds or changes a table | [lists.md](../dcr-reference/lists.md) |
+| Adds search or filters | [search.md](../dcr-reference/search.md) |
+| Adds an operation (retry, flush, delete, run) | [actions.md](../dcr-reference/actions.md) |
+| Adds agent-accessible functionality | [mcp-tools.md](../dcr-reference/mcp-tools.md) |
+| Adds or changes who may do something | [scopes.md](../dcr-reference/scopes.md) |
 
-Real examples to copy patterns from: [living-examples.md](../common/living-examples.md). Authoritative contract: [Building Panels](https://django-control-room.github.io/dj-control-room-base/building-panels/).
+Real examples to copy patterns from: [living-examples.md](../dcr-reference/living-examples.md). Authoritative contract: [Building Panels](https://django-control-room.github.io/dj-control-room-base/building-panels/).
 
 ## Workflow
 

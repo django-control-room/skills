@@ -4,7 +4,7 @@ The per-skill evals check what a skill produces once it has loaded. These check 
 
 ## Setup
 
-Install all five skills and `common/` (see the top-level README), in a Django project for the context named in each row:
+Install all six skills, including `dcr-reference` (see the top-level README), in a Django project for the context named in each row:
 
 | Context | Meaning |
 |---|---|
@@ -59,6 +59,8 @@ These are not staff UI jobs, or they are a different DCR concept. Run them in co
 | 22 | Build an MCP server that answers questions about our docs. |
 
 Row 22 matters because "MCP" appears in DCR's own vocabulary. A standalone MCP server is not a panel.
+
+`dcr-reference` must never be the first skill read for any prompt in this file. It is loaded only through the other skills' links. If it loads first, tighten its description.
 
 ## Project without DCR
 
