@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dcr",
   "version": "0.1.0",
-  "description": "Set up Django Control Room in a Django project, and create or change its admin panels, with agent skills.",
+  "description": "Build internal tools inside Django Admin with Django Control Room: support consoles, billing and ops pages, approval workflows, and dashboards. Agent skills to set up DCR and to create, package, or extend its tools (panels).",
   "author": {
     "name": "Django Control Room",
     "url": "https://djangocontrolroom.com"
@@ -10,12 +10,12 @@
   "homepage": "https://djangocontrolroom.com",
   "repository": "https://github.com/django-control-room/skills",
   "license": "MIT",
-  "keywords": ["django", "django-admin", "dj-control-room", "admin", "panels"],
+  "keywords": ["django", "django-admin", "internal-tools", "dj-control-room", "admin", "panels"],
   "extensions": {
     "com.openai.interface": {
       "displayName": "Django Control Room",
-      "shortDescription": "Build Django admin panels",
-      "longDescription": "Agent skills for Django Control Room (DCR), the plugin-based control room for the Django admin. Install DCR and its official panels into an existing Django project and verify the setup; create a staff-only internal panel inside your project; scaffold a reusable, publishable panel package from the official Cookiecutter; or change an existing panel (pages, settings, scopes, MCP agent tools) without breaking existing scopes, URL names, tool names, or settings keys. Works on Django projects that use, or want to use, dj-control-room. It does not manage hosting, deployments, or non-Django code.",
+      "shortDescription": "Build internal tools in Django Admin",
+      "longDescription": "Build internal tools inside Django Admin with a coding agent: customer support lookups, billing and operations consoles, staff approval workflows, and operational dashboards. The skills use Django Control Room (DCR), a plugin framework for the Django admin, where each tool is a panel. They install and verify DCR in an existing Django project, create a staff-only tool inside the project or a reusable tool packaged for PyPI from the official Cookiecutter, and extend existing tools (pages, actions, settings, permission scopes, MCP tools for AI agents) without breaking existing scopes, URL names, tool names, or settings keys. They leave ordinary ModelAdmin changes, public-facing pages, hosting, and deployments alone.",
       "developerName": "Django Control Room",
       "category": "Developer Tools",
       "capabilities": [],
@@ -24,9 +24,9 @@
       "composerIcon": "./assets/glyph.png",
       "websiteURL": "https://djangocontrolroom.com",
       "defaultPrompt": [
-        "Set up Django Control Room in this Django project.",
-        "Add an internal admin page for looking up failed webhooks.",
-        "Add a retry button to my existing Control Room panel."
+        "Build a tool for support to look up a customer and their recent orders.",
+        "Add a staff approval queue for refund requests.",
+        "Add a retry button to the webhook failures page."
       ]
     }
   }

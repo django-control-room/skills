@@ -1,13 +1,14 @@
 ---
 name: dcr-create-package-panel
 description: >-
-  Creates a reusable, publishable Django Control Room (DCR) panel package
-  (plugin) from the official Cookiecutter, then implements the admin UI,
-  scopes, tests, and MCP agent tools. Use when the user wants a new
-  dj-control-room panel or plugin that will be shared, installed into several
-  Django projects, or published to PyPI or a private index. Not for a tool that
-  only one project needs (use dcr-create-internal-panel) or for changing an
-  existing panel (use dcr-modify-panel).
+  Builds a reusable internal tool for Django Admin that ships as a Python
+  package: a Django Control Room (DCR) panel package baked from the official
+  Cookiecutter, then implemented with pages, permission scopes, tests, and MCP
+  tools for AI agents. Use when the user wants a tool that several Django
+  projects or teams will pip install, or that will be published to PyPI or a
+  private index, or asks for a DCR plugin or panel package. Not for a tool
+  only this project needs (dcr-create-internal-panel) or a change to an
+  existing tool (dcr-modify-panel).
 ---
 
 # dcr-create-package-panel

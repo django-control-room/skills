@@ -1,16 +1,15 @@
 ---
 name: dcr-setup
 description: >-
-  Installs and wires up Django Control Room (DCR) in an existing Django
-  project: adds dj-control-room and any chosen official panels, puts
-  dj_control_room_base, the panels, and dj_control_room in INSTALLED_APPS in the
-  right order, mounts their URLs, and verifies the dashboard loads. Use when
-  the user wants to install, set up, add, or get started with Django Control
-  Room, dj-control-room, or DCR, or wants a control room or staff dashboard in
-  their Django admin and it is not installed yet. Also use for a broken setup:
-  "dcr_icons is not a registered tag library", dj_control_room.E001, or panels
-  missing from the dashboard after installing. Does not create panels (use
-  dcr-create-internal-panel or dcr-create-package-panel).
+  Installs, configures, and troubleshoots Django Control Room (DCR), the
+  framework for building internal tools inside Django Admin. Adds
+  dj-control-room and any chosen official panels (Redis, cache, Celery, URLs,
+  signals), orders INSTALLED_APPS, mounts the URLs, and verifies the dashboard
+  loads. Use when the user asks to install, set up, or get started with DCR,
+  dj-control-room, or a control room in their admin, or when a setup is
+  broken: "dcr_icons is not a registered tag library", dj_control_room.E001,
+  or an installed panel missing from the dashboard. Builds no tools itself;
+  django-internal-tools sends a tool request here first when DCR is not installed.
 ---
 
 # dcr-setup
@@ -130,7 +129,7 @@ If something is off, see [references/troubleshooting.md](references/troubleshoot
 
 List what was installed, the files edited (settings, urls, dependency file), the dashboard URL, and what the doctor said. Then the permissions pointer from step 6.
 
-Next step, if they want to build something: `dcr-guide` (or `dcr-create-internal-panel` directly) to create a panel for this project.
+Next step, if they want to build something: `django-internal-tools` (or `dcr-create-internal-panel` directly) to create a panel for this project.
 
 ## Evals
 

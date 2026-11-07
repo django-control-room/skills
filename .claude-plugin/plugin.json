@@ -1,7 +1,7 @@
 {
   "name": "dcr",
   "version": "0.1.0",
-  "description": "Set up Django Control Room in a Django project, and create or change its admin panels, with agent skills.",
+  "description": "Build internal tools inside Django Admin with Django Control Room: support consoles, billing and ops pages, approval workflows, and dashboards. Agent skills to set up DCR and to create, package, or extend its tools (panels).",
   "author": {
     "name": "Django Control Room",
     "url": "https://djangocontrolroom.com"
@@ -10,5 +10,5 @@
   "repository": "https://github.com/django-control-room/skills",
   "license": "MIT",
   "icon": "assets/glyph.png",
-  "keywords": ["django", "django-admin", "dj-control-room", "admin", "panels"]
+  "keywords": ["django", "django-admin", "internal-tools", "dj-control-room", "admin", "panels"]
 }

@@ -1,18 +1,21 @@
 ---
-name: dcr-guide
+name: django-internal-tools
 description: >-
-  Entry point for building staff-facing admin tools in Django with Django
-  Control Room (DCR): an internal tool, admin page, dashboard, lookup page, or
-  ops/support screen, or a change to one that already exists. Use when the user
-  wants to create, add, extend, or change a tool, page, or panel for staff or
-  admins in a Django project that uses dj-control-room, or mentions DCR,
-  control room, or dj-control-room. Decides between installing DCR, a new
-  in-project panel, a reusable panel package, and changing an existing panel,
-  then hands off to dcr-setup, dcr-create-internal-panel,
-  dcr-create-package-panel, or dcr-modify-panel.
+  Start here to build an internal tool inside Django Admin: a customer support
+  console or lookup tool, a billing or operations page, a staff approval or
+  review workflow, an operational dashboard, or another custom staff-only
+  page, even when the user never mentions Django Control Room (DCR) or panels.
+  DCR is the framework these tools are built with; it calls each tool a panel.
+  Reads the project, then hands off to dcr-setup (DCR missing or broken),
+  dcr-create-internal-panel (new tool for this project),
+  dcr-create-package-panel (reusable package), or dcr-modify-panel (change an
+  existing tool). Builds nothing itself. Not for ordinary ModelAdmin changes
+  (fields, list_display, filters, inlines, admin actions), public or
+  customer-facing pages, APIs, scripts, or background jobs, or when the user
+  asks for another framework or a plain Django admin view.
 ---
 
-# dcr-guide
+# django-internal-tools
 
 Route a request to the right DCR skill. This skill builds nothing itself.
 
@@ -30,12 +33,22 @@ Users rarely say "panel". Map what they say to what DCR calls it:
 
 | They say | In DCR |
 |---|---|
-| "a tool / page / screen / dashboard / lookup for staff, admins, support, ops" | A **panel**: a staff-facing page set in Django admin |
+| "a tool for support to look up customers", "a support console", "a billing ops page", "an ops dashboard", "an internal tool / page / screen for staff" | A **panel**: a staff-facing page set in Django admin |
+| "an approval workflow", "a review queue", "let staff approve / reject X" | A **panel** with list pages and **actions** |
 | "let agents / Claude / the AI do X" | An **MCP tool**: a function a panel exposes to agents. It lives inside a panel and does not replace it |
 | "a button to retry / flush / delete / run X" | An **action** on a panel page |
 | "who can see / do X" | **Scopes** and `SCOPE_PERMISSIONS` |
 
-"Tool" alone is ambiguous. If the request could be a one-off script, a management command, a cron job, or a ModelAdmin action, and nothing says staff need a page for it, **do not force DCR**. Say what you would build instead, or ask.
+### Not a DCR job
+
+Say so and carry on without DCR when the request is:
+
+- **An ordinary ModelAdmin change**: fields, `list_display`, filters, search, inlines, or an admin action on a registered model.
+- **Public or customer-facing**: a page end users or customers see, not staff.
+- **Not a page**: a script, management command, API endpoint, Celery task, cron job, or standalone MCP server.
+- **Explicitly another approach**: the user named a different framework or tool (a plain Django admin view, Unfold pages, Wagtail, Retool, Streamlit). Respect it, even if DCR is installed.
+
+"Tool" alone is ambiguous. If nothing says staff need a page for it, **do not force DCR**. Say what you would build instead, or ask.
 
 ## 1. Read the project
 
@@ -54,7 +67,7 @@ Run these checks before asking the user anything:
 | They want something shared across projects, published, or installable with `pip` | [dcr-create-package-panel](../dcr-create-package-panel/SKILL.md) |
 | DCR is **not** installed, or the setup is broken | [dcr-setup](../dcr-setup/SKILL.md). If they also asked for a panel, install first, then continue |
 | They only want agents to be able to do X, and a panel for X exists | [dcr-modify-panel](../dcr-modify-panel/SKILL.md), adding an MCP tool |
-| It is not a staff UI at all | Not a DCR job. Say so and carry on without DCR |
+| Anything under [Not a DCR job](#not-a-dcr-job) | Say so and carry on without DCR |
 
 If it is still unclear whether the new tool is for one project or for many, ask exactly this and nothing more:
 

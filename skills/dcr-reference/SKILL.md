@@ -1,11 +1,11 @@
 ---
 name: dcr-reference
 description: >-
-  Shared Django Control Room (DCR) reference docs that the other dcr-* skills
-  link to: pages, lists, search, actions, scopes, MCP tools, design system, and
-  living examples. Loaded through those skills, not on its own. Do not use it
-  to answer a user request directly; use dcr-guide, dcr-setup,
-  dcr-create-internal-panel, dcr-create-package-panel, or dcr-modify-panel.
+  Shared Django Control Room (DCR) API and implementation reference for the
+  dcr-* workflow skills: pages, lists, search, actions, permission scopes, MCP
+  tools, the dcr-* design system, and living examples. The workflow skills
+  link to these files when a step needs them. Do not load it to handle a user
+  request directly; start with django-internal-tools or the matching workflow skill.
 ---
 
 # DCR reference

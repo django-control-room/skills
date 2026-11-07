@@ -1,13 +1,14 @@
 ---
 name: dcr-modify-panel
 description: >-
-  Changes or extends an existing Django Control Room (DCR) panel or the staff
-  admin tool built on it: add a page, column, search or filter, button or
-  action, setting, permission scope, or MCP agent tool, or fix a bug. Works on
-  reusable panel packages and internal dcr_startpanel apps, and keeps existing
-  scopes, URL names, MCP tool names, and settings keys working. Use when the
-  user wants to change, extend, fix, or add to a panel or dj-control-room tool
-  that already exists; not to create a new one.
+  Extends or fixes an internal tool that already exists as a Django Control
+  Room (DCR) panel, in a package or a project dcr_ app: add a page, column,
+  search or filter, button or action, setting, permission scope, or MCP tool
+  for AI agents, or fix a bug in it. Keeps existing scopes, URL names, MCP
+  tool names, and settings keys working. Use when the request names or clearly
+  refers to an existing DCR panel or the staff tool built on one ("add a retry
+  button to the webhook failures page"). Not for a new tool (django-internal-tools), DCR
+  wiring problems (dcr-setup), or ordinary ModelAdmin pages.
 ---
 
 # dcr-modify-panel

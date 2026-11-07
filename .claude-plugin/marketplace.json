@@ -1,6 +1,6 @@
 {
   "name": "django-control-room",
-  "description": "Agent skills for Django Control Room: set it up in a Django project, and create or change its admin panels.",
+  "description": "Agent skills for building internal tools inside Django Admin with Django Control Room.",
   "owner": {
     "name": "Django Control Room",
     "url": "https://djangocontrolroom.com"
@@ -9,10 +9,10 @@
     {
       "name": "dcr",
       "source": "./",
-      "description": "Set up Django Control Room in a Django project, and create or change its admin panels, with agent skills.",
+      "description": "Build internal tools inside Django Admin with Django Control Room: support consoles, billing and ops pages, approval workflows, and dashboards. Agent skills to set up DCR and to create, package, or extend its tools (panels).",
       "homepage": "https://djangocontrolroom.com",
       "license": "MIT",
-      "keywords": ["django", "django-admin", "dj-control-room", "admin", "panels"]
+      "keywords": ["django", "django-admin", "internal-tools", "dj-control-room", "admin", "panels"]
     }
   ]
 }

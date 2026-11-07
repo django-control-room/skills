@@ -1,19 +1,23 @@
 ---
-description: This project uses Django Control Room. Staff-facing tools are built as DCR panels.
+description: This project uses Django Control Room. Internal staff tools inside Django Admin are built as DCR panels.
 alwaysApply: true
 ---
 
 # Django Control Room
 
-This project uses [Django Control Room](https://djangocontrolroom.com) (DCR). Staff-facing tools, admin pages, dashboards, and lookup screens are built as **DCR panels**, not as one-off admin views or standalone pages.
+This project uses [Django Control Room](https://djangocontrolroom.com) (DCR) to build internal tools inside Django Admin. DCR calls each tool a **panel**. When someone asks for a staff-only tool, such as "a tool for support to look up customers", a billing operations page, an approval workflow, or an ops dashboard, build it as a DCR panel rather than a one-off admin view or standalone page.
 
-When asked to build, add, extend, or change one:
+Before choosing a skill, check the project: is DCR installed and wired, and does a panel for this already exist? Then:
 
-- A new tool for this project: use the `dcr-create-internal-panel` skill. It creates a new `dcr_`-prefixed Django app with `python manage.py dcr_startpanel <name>`. Never put panel code inside an existing app.
+- A plain-language request, or not sure which: use `django-internal-tools`.
+- DCR is missing or misconfigured (`dcr_icons` errors, `dj_control_room.E001`, a panel missing from the dashboard): use `dcr-setup`.
+- A new tool for this project: use `dcr-create-internal-panel`. It creates a new `dcr_`-prefixed Django app with `python manage.py dcr_startpanel <name>`. Never put panel code inside an existing app.
 - Something shared across projects or published to PyPI: use `dcr-create-package-panel`.
 - A change to a panel that already exists: use `dcr-modify-panel`. Do not rename scopes, URL names, MCP tool names, or settings keys without asking.
-- DCR itself is misconfigured (`dcr_icons` errors, `dj_control_room.E001`, a panel missing from the dashboard): use `dcr-setup`.
-- Not sure which: use `dcr-guide`.
+
+If it is unclear whether a new tool is for this project or for many, ask: "Should this be a reusable panel package, or a new Django app in this project?"
+
+Not DCR jobs: ordinary ModelAdmin changes (fields, `list_display`, filters, inlines, admin actions), public or customer-facing pages, APIs, scripts, management commands, and background tasks. If the user asks for another framework or a plain Django admin view, do that instead.
 
 Rules for any panel:
 

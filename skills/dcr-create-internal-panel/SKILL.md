@@ -1,15 +1,16 @@
 ---
 name: dcr-create-internal-panel
 description: >-
-  Creates a new internal admin tool for a Django project as a Django Control
-  Room (DCR) panel: a new dcr_-prefixed Django app inside the existing project,
-  scaffolded with the dcr_startpanel management command, then implemented with
-  pages, scopes, tests, and optional MCP agent tools. Use when the user wants a
-  staff-only page, lookup tool, dashboard, or ops/support screen inside their
-  own Django project, or says internal panel, project panel, or unpackaged
-  control-room panel. Not for a reusable PyPI package (use
-  dcr-create-package-panel) or for changing an existing panel (use
-  dcr-modify-panel). Never nests the panel inside another Django app.
+  Builds a new internal tool for one Django project, such as a support lookup
+  tool, billing operations page, approval queue, or ops dashboard, as a Django
+  Control Room (DCR) panel: a new dcr_-prefixed Django app scaffolded with
+  dcr_startpanel, then implemented with pages, actions, permission scopes,
+  tests, and optional MCP tools for AI agents. Use when the project already
+  uses DCR and the tool belongs to this project only, or the user asks for an
+  internal or project DCR panel. Needs DCR installed (dcr-setup first if not).
+  Not for a reusable package (dcr-create-package-panel) or a change to an
+  existing tool (dcr-modify-panel). Never nests the tool inside an existing
+  app.
 ---
 
 # dcr-create-internal-panel
