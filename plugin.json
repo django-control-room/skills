@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dcr",
+  "version": "0.1.0",
+  "description": "Set up Django Control Room in a Django project, and create or change its admin panels, with agent skills.",
+  "author": {
+    "name": "Django Control Room",
+    "url": "https://djangocontrolroom.com"
+  },
+  "homepage": "https://djangocontrolroom.com",
+  "repository": "https://github.com/django-control-room/skills",
+  "license": "MIT",
+  "keywords": ["django", "django-admin", "dj-control-room", "admin", "panels"],
+  "extensions": {
+    "com.openai.interface": {
+      "displayName": "Django Control Room",
+      "shortDescription": "Build Django admin panels",
+      "longDescription": "Agent skills for Django Control Room (DCR), the plugin-based control room for the Django admin. Install DCR and its official panels into an existing Django project and verify the setup; create a staff-only internal panel inside your project; scaffold a reusable, publishable panel package from the official Cookiecutter; or change an existing panel (pages, settings, scopes, MCP agent tools) without breaking existing scopes, URL names, tool names, or settings keys. Works on Django projects that use, or want to use, dj-control-room. It does not manage hosting, deployments, or non-Django code.",
+      "developerName": "Django Control Room",
+      "category": "Developer Tools",
+      "capabilities": [],
+      "brandColor": "#36936A",
+      "logo": "./assets/glyph.png",
+      "composerIcon": "./assets/glyph.png",
+      "websiteURL": "https://djangocontrolroom.com",
+      "defaultPrompt": [
+        "Set up Django Control Room in this Django project.",
+        "Add an internal admin page for looking up failed webhooks.",
+        "Add a retry button to my existing Control Room panel."
+      ]
+    }
+  }
+}

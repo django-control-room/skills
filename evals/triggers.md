@@ -14,7 +14,7 @@ Install all five skills and `common/` (see the top-level README), in a Django pr
 
 Run each prompt in a **fresh chat**, three times, because skill selection is not deterministic. Record which skill the agent read first.
 
-Run the whole set twice: once without [`rules/dcr.mdc`](../rules/dcr.mdc) and once with it installed as a project rule. The difference is the rule's value.
+Run the whole set twice: once without [`project-rule/dcr.mdc`](../project-rule/dcr.mdc) and once with it installed as a project rule. The difference is the rule's value.
 
 ## Scoring
 

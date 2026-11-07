@@ -1,0 +1,14 @@
+{
+  "name": "dcr",
+  "version": "0.1.0",
+  "description": "Set up Django Control Room in a Django project, and create or change its admin panels, with agent skills.",
+  "author": {
+    "name": "Django Control Room",
+    "url": "https://djangocontrolroom.com"
+  },
+  "homepage": "https://djangocontrolroom.com",
+  "repository": "https://github.com/django-control-room/skills",
+  "license": "MIT",
+  "icon": "assets/glyph.png",
+  "keywords": ["django", "django-admin", "dj-control-room", "admin", "panels"]
+}
