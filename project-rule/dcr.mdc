@@ -14,6 +14,7 @@ Before choosing a skill, check the project: is DCR installed and wired, and does
 - A new tool for this project: use `dcr-create-internal-panel`. It creates a new `dcr_`-prefixed Django app with `python manage.py dcr_startpanel <name>`. Never put panel code inside an existing app.
 - Something shared across projects or published to PyPI: use `dcr-create-package-panel`.
 - A change to a panel that already exists: use `dcr-modify-panel`. Do not rename scopes, URL names, MCP tool names, or settings keys without asking.
+- Who can use a tool or one of its actions ("only finance can approve"), or giving AI agents access over MCP: use `dcr-access`. Never point the MCP endpoint at a superuser without the user agreeing.
 
 If it is unclear whether a new tool is for this project or for many, ask: "Should this be a reusable panel package, or a new Django app in this project?"
 

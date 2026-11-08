@@ -8,7 +8,8 @@ description: >-
   tool names, and settings keys working. Use when the request names or clearly
   refers to an existing DCR panel or the staff tool built on one ("add a retry
   button to the webhook failures page"). Not for a new tool (django-internal-tools), DCR
-  wiring problems (dcr-setup), or ordinary ModelAdmin pages.
+  wiring problems (dcr-setup), deciding who may use a tool in project settings
+  (dcr-access), or ordinary ModelAdmin pages.
 ---
 
 # dcr-modify-panel
@@ -86,7 +87,7 @@ Before editing, check [references/compatibility.md](references/compatibility.md)
 - **Smallest diff that does the job.** Edit in place. Do not restructure, rename, reformat, or "modernize" files you do not need to change.
 - **Follow the panel's conventions** over the generic ones: its helper module, its template partials, its test base class, its naming style. Open a neighbouring view or test and match it.
 - **New view → new scope.** Name it for what it protects (`widget_detail`). Do not reuse an unrelated scope and do not use `"index"`.
-- **New MCP tool → `agent_` scope**, distinct from the view scope.
+- **New MCP tool → `agent_` scope**, distinct from the view scope. Agents reach it only once the hub's MCP endpoint is on; if it is not, say so in the report and point to `dcr-access`.
 - **New setting → add its default in `conf.py`**, read it with `panel_config.get_settings()`. Never `getattr(django.conf.settings, ...)`.
 - **UI uses `dcr-*`.** No admin `.button`, no copied `design-system.css`, no hex colours.
 - **Add a test for each new behaviour** next to the panel's existing tests. Package: subclass `PanelTestCase`. Internal: the host project's suite.

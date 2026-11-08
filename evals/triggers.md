@@ -4,7 +4,7 @@ The per-skill evals check what a skill produces once it has loaded. These check 
 
 ## Setup
 
-Install all six skills, including `dcr-reference` (see the top-level README), in a Django project for the context named in each row:
+Install all seven skills, including `dcr-reference` (see the top-level README), in a Django project for the context named in each row:
 
 | Context | Meaning |
 |---|---|
@@ -61,7 +61,7 @@ Run the whole set twice: once without [`project-rule/dcr.mdc`](../project-rule/d
 | 14 | B | Add a retry button to the webhook failures page. | `dcr-modify-panel` |
 | 15 | B | Let me filter the cache panel by key prefix. | `dcr-modify-panel` |
 | 16 | B | Make it possible to hide pip and setuptools from the packages list. | `dcr-modify-panel` |
-| 17 | B | Let AI agents search the app packages. | `dcr-modify-panel` (adds an MCP tool) |
+| 17 | B | Let AI agents search the app packages. | `dcr-modify-panel` (adds an MCP tool), and its report points to `dcr-access` if the endpoint is off |
 | 18 | B | The packages page lists some packages twice. Fix it. | `dcr-modify-panel` |
 | 19 | B | Add a detail page for each package. | `dcr-modify-panel` |
 
@@ -112,6 +112,21 @@ Run these in contexts A and B. They are ordinary Django work, public pages, a di
 
 Row 41 is easy to mistake for a modify request. Nothing in the panel's code is wrong; the wiring is.
 
+## 9. Who can use a tool, and agent access
+
+Context B here also has an internal `dcr_refunds` panel with scopes `refund_list`, `refund_approve`, and `agent_refund_list`.
+
+| # | Context | Prompt | Expected |
+|---|---|---|---|
+| 43 | B | Only the finance team should be able to approve refunds. | `dcr-access` (settings only, no panel code) |
+| 44 | B | Lock the cache panel down to superusers. | `dcr-access` |
+| 45 | B | Why does someone on support get a 403 on the refunds page? | `dcr-access` |
+| 46 | B | Let Claude Code look up refunds through the control room. | `dcr-access` (a tool exists: turn on the MCP endpoint) |
+| 47 | B | Let AI agents retry failed webhooks. | `dcr-modify-panel` (no such tool yet), then `dcr-access` |
+| 48 | B | Add a `refund_export` permission scope to the refunds panel's export view. | `dcr-modify-panel` (a code change, not settings) |
+
+Row 47 differs from row 17 only in where it ends: a new tool is useless until the endpoint is on.
+
 ## When a row fails
 
 | Symptom | Likely fix |
@@ -121,6 +136,8 @@ Row 41 is easy to mistake for a modify request. Nothing in the panel's code is w
 | Section 6 rows load a skill | The description is too broad. Tighten it, and add the case to "Not a DCR job" in `django-internal-tools` and in the project rule |
 | Rows 28–29 load a skill only with the rule installed | The rule overrides an explicit choice. Strengthen its "another framework" sentence |
 | Row 17 loads `dcr-create-internal-panel` | "Agent tool" is being read as "new panel". Strengthen the MCP-tool row in the glossary of `django-internal-tools` and in `dcr-modify-panel`'s description |
+| Rows 43–46 load `dcr-modify-panel` or `dcr-setup` | `dcr-access`'s description lacks the user's words ("only X can", "403", "let Claude"), or the others claim permissions |
+| Row 48 loads `dcr-access` | It is claiming code changes. Its description must say "settings only" |
 | Section 8 rows load a create or modify skill | `dcr-setup`'s description lacks the user's words ("set up", "get started", "doesn't show up"), or `dcr-modify-panel` claims too much |
 | Section 4 rows load a create skill | `dcr-modify-panel`'s description does not say "already exists" strongly enough |
 | Selection is fine with the rule installed and poor without it | Expected. Recommend the rule in install docs |

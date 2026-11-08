@@ -1,7 +1,7 @@
 {
   "name": "dcr",
   "version": "0.1.0",
-  "description": "Build internal tools inside Django Admin with Django Control Room: support consoles, billing and ops pages, approval workflows, and dashboards. Agent skills to set up DCR and to create, package, or extend its tools (panels).",
+  "description": "Build internal tools inside Django Admin with Django Control Room: support consoles, billing and ops pages, approval workflows, and dashboards. Agent skills to set up DCR, create, package, or extend its tools (panels), and control who can use them.",
   "author": {
     "name": "Django Control Room",
     "url": "https://djangocontrolroom.com"

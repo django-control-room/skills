@@ -8,8 +8,8 @@ description: >-
   DCR is the framework these tools are built with; it calls each tool a panel.
   Reads the project, then hands off to dcr-setup (DCR missing or broken),
   dcr-create-internal-panel (new tool for this project),
-  dcr-create-package-panel (reusable package), or dcr-modify-panel (change an
-  existing tool). Builds nothing itself. Not for ordinary ModelAdmin changes
+  dcr-create-package-panel (reusable package), dcr-modify-panel (change an
+  existing tool), or dcr-access (who can use a tool, AI agent access). Builds nothing itself. Not for ordinary ModelAdmin changes
   (fields, list_display, filters, inlines, admin actions), public or
   customer-facing pages, APIs, scripts, or background jobs, or when the user
   asks for another framework or a plain Django admin view.
@@ -37,7 +37,7 @@ Users rarely say "panel". Map what they say to what DCR calls it:
 | "an approval workflow", "a review queue", "let staff approve / reject X" | A **panel** with list pages and **actions** |
 | "let agents / Claude / the AI do X" | An **MCP tool**: a function a panel exposes to agents. It lives inside a panel and does not replace it |
 | "a button to retry / flush / delete / run X" | An **action** on a panel page |
-| "who can see / do X" | **Scopes** and `SCOPE_PERMISSIONS` |
+| "only finance can X", "who can see / do X", "lock down X" | **Scopes**, set per project in `SCOPE_PERMISSIONS` |
 
 ### Not a DCR job
 
@@ -66,7 +66,9 @@ Run these checks before asking the user anything:
 | DCR is installed and they want a new tool for this project | [dcr-create-internal-panel](../dcr-create-internal-panel/SKILL.md) |
 | They want something shared across projects, published, or installable with `pip` | [dcr-create-package-panel](../dcr-create-package-panel/SKILL.md) |
 | DCR is **not** installed, or the setup is broken | [dcr-setup](../dcr-setup/SKILL.md). If they also asked for a panel, install first, then continue |
-| They only want agents to be able to do X, and a panel for X exists | [dcr-modify-panel](../dcr-modify-panel/SKILL.md), adding an MCP tool |
+| They want to limit who can use a tool, or one of its actions, and it has a scope for it | [dcr-access](../dcr-access/SKILL.md) |
+| They want agents to do X, and the panel already has an MCP tool for X | [dcr-access](../dcr-access/SKILL.md), turning on the MCP endpoint |
+| They want agents to do X, and the panel has no MCP tool for it | [dcr-modify-panel](../dcr-modify-panel/SKILL.md) to add one, then [dcr-access](../dcr-access/SKILL.md) |
 | Anything under [Not a DCR job](#not-a-dcr-job) | Say so and carry on without DCR |
 
 If it is still unclear whether the new tool is for one project or for many, ask exactly this and nothing more:

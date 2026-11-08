@@ -11,4 +11,6 @@ Rewrite the generated scopes doc — `docs/scopes.md` in a package, or `scopes.m
 - Settings key is `<APP_LABEL>_SETTINGS` (the generated `PanelConfig.settings_key`). Do not invent a new one. Do not write `DJ_CONTROL_ROOM_SETTINGS["PANELS"]` — the hub does not read it yet.
 - Document a `SCOPE_PERMISSIONS` example for any dangerous action.
 
+Panel code defines scopes; the project decides who gets them in its settings. That project side, and turning on the MCP endpoint, is the [dcr-access](../dcr-access/SKILL.md) skill.
+
 Full model: [Control Room permissions and scopes](https://djangocontrolroom.com/guides/control-room-permissions-and-scopes).

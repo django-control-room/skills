@@ -54,6 +54,7 @@ Agents load skills only when they judge a request relevant. A project rule is re
 | [`dcr-create-internal-panel`](skills/dcr-create-internal-panel/) | A new tool for this project, as its own Django app |
 | [`dcr-create-package-panel`](skills/dcr-create-package-panel/) | A reusable tool shipped as a Python package (PyPI or private index) |
 | [`dcr-modify-panel`](skills/dcr-modify-panel/) | Extending or fixing a tool that already exists, without breaking its scopes, URLs, or settings |
+| [`dcr-access`](skills/dcr-access/) | Who can use each tool (teams, superusers, single actions), and giving AI agents access over MCP |
 | [`dcr-reference`](skills/dcr-reference/) | Shared DCR API docs the other skills read when needed. Not invoked directly |
 
 If it is unclear whether a tool is for one project or many, the agent asks. Ordinary ModelAdmin changes, public-facing pages, and requests for another framework are left alone.

@@ -22,7 +22,7 @@ This skill is **development-time guidance**. Nothing it produces may depend on t
 Read the project → choose panels → install → INSTALLED_APPS + urls.py → verify
 ```
 
-Out of scope, and left to the user: **scopes and permissions** (see step 6), the **MCP endpoint** (off by default), and writing panels.
+Out of scope: **scopes and permissions** and the **MCP endpoint** (off by default), which are [dcr-access](../dcr-access/SKILL.md), and writing panels.
 
 ## 1. Read the project
 
@@ -103,7 +103,7 @@ Do not run `migrate` for DCR (it has no migrations) and do not create a superuse
 
 ## 6. Permissions
 
-Do not configure scopes or access control. By default any staff user can open the dashboard and the panels. Deciding who gets access to what is up to the user. In the report, point them at:
+Do not configure scopes or access control here. By default any staff user can open the dashboard and the panels. If the user wants to limit that, or to give AI agents access, that is [dcr-access](../dcr-access/SKILL.md). In the report, point them at it and at:
 
 - [Control Room permissions and scopes](https://djangocontrolroom.com/guides/control-room-permissions-and-scopes)
 - [Scopes in the dj-control-room docs](https://django-control-room.github.io/dj-control-room/scopes/)
@@ -129,7 +129,7 @@ If something is off, see [references/troubleshooting.md](references/troubleshoot
 
 List what was installed, the files edited (settings, urls, dependency file), the dashboard URL, and what the doctor said. Then the permissions pointer from step 6.
 
-Next step, if they want to build something: `django-internal-tools` (or `dcr-create-internal-panel` directly) to create a panel for this project.
+Next steps: `dcr-access` to limit who can use each panel or to connect an AI agent. If they want to build something: `django-internal-tools` (or `dcr-create-internal-panel` directly) to create a panel for this project.
 
 ## Evals
 

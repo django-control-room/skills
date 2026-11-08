@@ -15,4 +15,6 @@ For real tool shapes, read [dj-urls-panel](https://github.com/django-control-roo
 - `input_schema` is a JSON Schema object. Set `"additionalProperties": False`.
 - If the panel has no agent API, delete `hello_world` and any generated test for it, leave an empty registry (package) or do not create `tools.py` (internal), and say so in the panel's scopes doc (`docs/scopes.md` in a package, `scopes.md` next to `panel.py` in an internal app).
 
+Agents reach tools through the hub's MCP endpoint, which is off by default. Turning it on and choosing which tools an agent may call is the [dcr-access](../dcr-access/SKILL.md) skill.
+
 API reference: [Panel tools](https://django-control-room.github.io/dj-control-room-base/building-panels/#panel-tools). Also read [scopes.md](scopes.md) and this skill's `references/tests.md`.
