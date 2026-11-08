@@ -10,7 +10,7 @@ Build internal tools inside Django Admin by asking your coding agent for them.
 
 > Add a staff approval queue for refund requests over $500.
 
-These skills turn requests like these into staff-only pages in your existing Django Admin, with permissions, tests, and a consistent UI, built on [Django Control Room](https://djangocontrolroom.com) (DCR). DCR calls each tool a **panel**. You do not need to know that word: the agent recognizes the request, checks your project, and installs DCR first if it is missing (after asking).
+These skills turn requests like these into staff-only pages in your existing Django Admin, with permissions, tests, and a consistent UI, built on [Django Control Room](https://djangocontrolroom.com) (DCR). DCR is a framework for creating tools (called **panels**) directly inside the admin; You can build tools that live directly in your codebase or even create DCR panels that you wish to publish for other to use. The DCR ecosystem already provides many useful packages (e.g. tools for redis, celery, caches, etc.)
 
 The skills are development-time guidance only. What they build depends on DCR's packages, not on this repository.
 
